@@ -1,0 +1,21 @@
+version: "2.0"
+services:
+  api:
+    container_name: api
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+      - "8023:22"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27019:27017"
+    environment:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: password
