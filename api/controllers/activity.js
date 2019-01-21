@@ -10,6 +10,7 @@ exports.all = (req, res) => {
  })
 };
 
+
 exports.getById = (req, res) => {
  Activity.findByQuery(req, (err, docs) => {
   if (err) {
